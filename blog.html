@@ -74,6 +74,22 @@
          text-align: left;
        }
 
+       h1 {
+         font-size: 22px;
+         font-weight: 300;
+         text-align: left;
+       }
+
+     .spacer20 {
+       height: 20px;
+       width: 100%;
+       font-size: 0;
+       margin: 0;
+       padding: 0;
+       border: 0;
+       display: block;
+      }
+
       footer {
         background-color: #f2f2f2;
         padding: 25px;
@@ -102,11 +118,24 @@
     </nav>
 
     <div class="container">
-      <div class="row text-center">
-        <div class="col-lg-8">
-          <h2>Outpacing Feedback: An Ode to Testing and Debugging</h2>
+      <div class="row well">
+        <div class="col-md-12">
+          <h2>On Outpacing Feedback: Testing, Debugging, Organization</h2>
+          <div class="spacer20"></div>
           <p>
-            this will be blog text
+            Because the Ruby community is healthily obsessed with Test-Driven Development (TDD), there is a strong emphasis in the Turing curriculum to write tests first in the development cycle. In the beginning weeks of module 1, I found it easy to obey the principles of TDD while completing the early projects. However, as the module progressed, the complexity of projects ramped up quickly and I found it difficult to test first instead of just trying to write the thing. When writing a superstar method that calls several sub-methods, the debugging and editing process took significantly longer when I was writing code I didn't yet have a unit test for. While integration tests are their own special kind of lovely, the problem with using them without unit tests is that nothing will work until everything works. The realization that you've gotten a bit lost in your own code dawns on you. This is an usettling place to be as a new developer, and I have some suggstions for navigating this space.
+          </p>
+          <h1>Errors are Friendly</h1>
+          <p>
+            They don't seem friendly, but errors, failures, and passing tests are the only mechanism for knowing with any amount of certainty that our code does what we think it does. I'm not ashamed to say that in the first weeks of using Minitest, I experienced a variety of emotional responses when running my test suite. I lived and died by the colorful dots. When presented with an error, my initial reaction would often be frustration with my code, and I would scour my code for errors without doing the thing that mattered most: reading the error. The errors contain so much information, and sometimes you'll even get a stack track to accompany the error, especially when dealing with integration tests. Learn to read the errors and alter your code based on them.
+          </p>
+          <h1>Whiteboard First</h1>
+          <p>
+            Whiteboarding should happen before writing tests. Whiteboarding is the process of describing the behavior and attributes we want our code to have. This isn't a stage of development for coding, and I find it helpful to focus on functionality instead of implementation. Dream up the most perfect, ideal situation that you want your code to have. You'll be able to make it happen later. The idea is that through the process of whiteboarding we discover more specifically what we want our code to do. Once we have a targeted behavior, we can write tests for that behavior, and write code to pass the tests. When writing superstar-methods that rely on helper methods, it's better to whiteboard and unit test the helper methods individually than to keep changing things until the integration test passes. It was when I was writing the helper methods and found that a helper method itself needed a helper method that I realized I was getting lost in my code (cheers, Battleship). It was through taking a step back and being specific about the organization of methods and their individual purposes that allowed me to unit test and find more sure footing in the development process.
+          </p>
+          <h1>Testing: Edge Cases, Coverage</h1>
+          <p>
+            When writing tests, it's helpful to think of all the cases your code might have to handle within the scope of your current project. Based on certain cases and data, what do you want your code to do? Unit tests offer us a way to specifically test the behavior of one method or chunk of code. For example, when making a relational database with the Headcount project, we were using thousands of lines of CSVs to populate our database. We couldn't know all of the possibilities for a piece of data in a file, so we made rules for our data that could handle many cases and tested these explciitly. I also highly recommend using SimpleCov. SimpleCov is a gem that makes more targeted testing easier because it calculates statistics that show you which portions of your code are being tested and which are not.
           </p>
         </div>
       </div>
