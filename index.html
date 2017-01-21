@@ -30,7 +30,7 @@
         color: #000000;
       }
 
-      .teaser, a {
+      .col-sm-4, a {
         font-size: 22px;
         font-weight: 300;
         text-align: center;
@@ -38,7 +38,12 @@
 
        p {
         font-size: 16px;
-        text-align: justify;
+        text-align: left;
+      }
+
+      .jumbotron p {
+        font-size: 26px;
+        text-align: center;
       }
 
       footer {
@@ -76,19 +81,20 @@
     <div class="container-fluid bg-3 text-center">
       <h3>Projects</h3><br>
       <div class="row">
-        <div class="teaser col-sm-4">
+        <div class="col-sm-4">
           <a href="https://github.com/meyerhoferc/headcount">Headcount</a>
+          <br />
           <p>
             Headcount is relational database built on the collection of Colorado state education data from Data.gov. We used this data to answer questions about the relationships between median household income, kindergarten participation, high school graduation, and statewide test scores.
           </p>
         </div>
-        <div class="teaser col-sm-4">
+        <div class="col-sm-4">
           <a href="https://github.com/meyerhoferc/battleship">Battleship</a>
           <p>
             This is a Ruby, text-based, terminal-run implementation of the classic game Battleship. A user plays against an AI by placing ships on a board and firing at the AI's board.
           </p>
         </div>
-        <div class="teaser col-sm-4">
+        <div class="col-sm-4">
           <a href="https://github.com/meyerhoferc/complete-me">CompleteMe</a>
           <p>
             Complete-Me poses the challenge of creating a simple text based auto complete. The backbone of Complete-Me is a "trie" tree, short for a re-trie-val tree. The trie is used for storing and fetching paths that map out possible words. Complete-Me is a broadly-branched tree where paths from the root to the leaves represent “words” within the dictionary.
