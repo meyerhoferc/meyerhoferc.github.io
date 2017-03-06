@@ -119,23 +119,92 @@
 
     <div class="container">
       <div class="col-md-12">
-        <h2>On Outpacing Feedback: Testing, Debugging, Organization</h2>
+        <h2>Object Oriented Programming in Python, Part 1: The Basics</h2>
         <div class="spacer20"></div>
+        <h1>Object-Oriented Programming</h1>
         <p>
-          Because the Ruby community is healthily obsessed with Test-Driven Development (TDD), there is a strong emphasis in the Turing curriculum to write tests first in the development cycle. In the beginning weeks of module 1, I found it easy to obey the principles of TDD while completing the early projects. However, as the module progressed, the complexity of projects ramped up quickly and I found it difficult to test first instead of just trying to write the thing. When writing a superstar method that calls several sub-methods, the debugging and editing process took significantly longer when I was writing code I didn't yet have a unit test for. While integration tests are their own special kind of lovely, the problem with using them without unit tests is that nothing will work until everything works. The realization that you've gotten a bit lost in your own code dawns on you. This is an usettling place to be as a new developer, and I have some suggstions for navigating this space.
+          OOP is all the rage, but the hype is real. By abstracting state to objects, we're able to keep track of data with a high degree of flexibility. The modularity of classes provides adaptability for change in the future. I came to know OOP and the Single Responsibility Principle through Ruby, and as I foray into the world of Python, I'm sharing what I learn.
         </p>
-        <h1>Errors are Friendly</h1>
+        <h1>Why Python?</h1>
         <p>
-          They don't seem friendly, but errors, failures, and passing tests are the only mechanism for knowing with any amount of certainty that our code does what we think it does. I'm not ashamed to say that in the first weeks of using Minitest, I experienced a variety of emotional responses when running my test suite. I lived and died by the colorful dots. When presented with an error, my initial reaction would often be frustration with my code, and I would scour my code for errors without doing the thing that mattered most: reading the error. The errors contain so much information, and sometimes you'll even get a stack track to accompany the error, especially when dealing with integration tests. Learn to read the errors and alter your code based on them.
+          <ul>
+            <li>easy to learn</li>
+            <li>widely used in:</li>
+            <ul>
+              <li>web development</li>
+              <li>analytics</li>
+              <li>basic game development</li>
+              <li>data science</li>
+              <li>security</li>
+            </ul>
+            <li>solid documentation and user base</li>
+            <li>high demand for jobs (19% year over year growth in demand)</li>
+          </ul>
         </p>
-        <h1>Whiteboard First</h1>
-        <p>
-          Whiteboarding should happen before writing tests. Whiteboarding is the process of describing the behavior and attributes we want our code to have. This isn't a stage of development for coding, and I find it helpful to focus on functionality instead of implementation. Dream up the most perfect, ideal situation that you want your code to have. You'll be able to make it happen later. The idea is that through the process of whiteboarding we discover more specifically what we want our code to do. Once we have a targeted behavior, we can write tests for that behavior, and write code to pass the tests. When writing superstar-methods that rely on helper methods, it's better to whiteboard and unit test the helper methods individually than to keep changing things until the integration test passes. It was when I was writing the helper methods and found that a helper method itself needed a helper method that I realized I was getting lost in my code (cheers, Battleship). It was through taking a step back and being specific about the organization of methods and their individual purposes that allowed me to unit test and find more sure footing in the development process.
-        </p>
-        <h1>Testing: Edge Cases, Coverage</h1>
-        <p>
-          When writing tests, it's helpful to think of all the cases your code might have to handle within the scope of your current project. Based on certain cases and data, what do you want your code to do? Unit tests offer us a way to specifically test the behavior of one method or chunk of code. For example, when making a relational database with the Headcount project, we were using thousands of lines of CSVs to populate our database. We couldn't know all of the possibilities for a piece of data in a file, so we made rules for our data that could handle many cases and tested these explicitly. I also highly recommend using SimpleCov. SimpleCov is a gem that makes more targeted testing easier because it calculates statistics that show you which portions of your code are being tested and which are not.
-        </p>
+        <h1>Python Syntax</h1>
+        <p>Below is an example of a car class in Python:</p>
+        <pre><code>
+        class Car:
+            number_of_wheels = 4
+            def __init__(self, make, model, year, color):
+                self.make = make
+                self.model = model
+                self.year = year
+                self.color = color
+
+            def honk(self):
+                return "HONK"
+
+            def count_wheels(self):
+                return "I have %s wheels" %(self.number_of_wheels)
+        </code>
+        </pre>
+        <p>Below is an instantiation and example interaction:</p>
+        <pre>
+          <code>
+            car = Car("Ford", "Escape", 2009, "white")
+
+            print car.make
+                => "Ford"
+
+            print car.model
+                => "Escape"
+
+            print car.year
+                => 2009
+
+            print car.color
+                => "white"
+
+            print car.honk()
+                => "HONK"
+
+            print car.number_of_wheels
+                => 4
+
+            print car.count_wheels()
+                => "I have 4 wheels"
+          </code>
+        </pre>
+        <p>In comparison to Ruby, the <code>__init__</code> method is analogous to the <code>initialize</code> method and it takes an additional argument of <code>self</code> in the class construction.</p>
+        <p>Within the <code>__init__</code> method, instance variables are defined as <code>self.instance_variable</code> and can be accessed as readers or writers. The variable <code>number_of_wheels</code> has been set for all instances of the car class but can be changed as shown below.</p>
+        <pre>
+          <code>
+            car.number_of_wheels = 0
+            print car.count_wheels()
+                => "I have 0 wheels"
+
+            car.make = "Chevrolet"
+            print car.make
+              => "Chevrolet"
+          </code>
+        </pre>
+        <p>Interestingly, instance methods have a different syntax from Ruby. While instance variables can be called on an instance of the class as they are in Ruby, the instance methods retain a <code>()</code> when called (even if the method doesn't require arguments) and take the argument of <code>self</code> when defined in the class. The <code>self</code> that is passed along is the instance of the class that the method is being called on.</p>
+        <h1>Further Resources</h1>
+        <ul>
+          <p><a href="https://www.python.org/">Python Docs</a></p>
+          <p><a href="https://dbader.org/blog/">Python Blog</a></p>
+        </ul>
       </div>
     </div>
 
